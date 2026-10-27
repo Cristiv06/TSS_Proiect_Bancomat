@@ -1,0 +1,97 @@
+1:ROR:<(int,int):!=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1126:suma < SUMA_MIN |==> suma != SUMA_MIN
+2:ROR:<(int,int):<=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1126:suma < SUMA_MIN |==> suma <= SUMA_MIN
+3:ROR:<(int,int):FALSE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1131:suma < SUMA_MIN |==> false
+4:ROR:>(int,int):!=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1145:suma > SUMA_MAX |==> suma != SUMA_MAX
+5:ROR:>(int,int):>=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1145:suma > SUMA_MAX |==> suma >= SUMA_MAX
+6:ROR:>(int,int):FALSE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1150:suma > SUMA_MAX |==> false
+7:COR:||(boolean,boolean):LHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1126:suma < SUMA_MIN || suma > SUMA_MAX |==> suma < SUMA_MIN
+8:COR:||(boolean,boolean):RHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1145:suma < SUMA_MIN || suma > SUMA_MAX |==> suma > SUMA_MAX
+9:COR:||(boolean,boolean):TRUE(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1142:suma < SUMA_MIN || suma > SUMA_MAX |==> true
+10:LVR:POS:0:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1171:10 |==> 0
+11:AOR:%(int,int):*(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma % 10 |==> suma * 10
+12:AOR:%(int,int):+(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma % 10 |==> suma + 10
+13:AOR:%(int,int):-(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma % 10 |==> suma - 10
+14:AOR:%(int,int):/(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma % 10 |==> suma / 10
+15:LVR:0:POS:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1177:0 |==> 1
+16:LVR:0:NEG:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1177:0 |==> -1
+17:ROR:!=(int,int):<(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma % 10 != 0 |==> suma % 10 < 0
+18:ROR:!=(int,int):>(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma % 10 != 0 |==> suma % 10 > 0
+19:ROR:!=(int,int):TRUE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1174:suma % 10 != 0 |==> true
+20:COR:||(boolean,boolean):!=(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1126:suma < SUMA_MIN || suma > SUMA_MAX || suma % 10 != 0 |==> (suma < SUMA_MIN || suma > SUMA_MAX) != (suma % 10 != 0)
+21:COR:||(boolean,boolean):LHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1126:suma < SUMA_MIN || suma > SUMA_MAX || suma % 10 != 0 |==> suma < SUMA_MIN || suma > SUMA_MAX
+22:COR:||(boolean,boolean):RHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1164:suma < SUMA_MIN || suma > SUMA_MAX || suma % 10 != 0 |==> suma % 10 != 0
+23:COR:||(boolean,boolean):TRUE(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):27:1161:suma < SUMA_MIN || suma > SUMA_MAX || suma % 10 != 0 |==> true
+24:STD:<RETURN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):28:1220:return Rezultat.eroare(Stare.SUMA_INVALIDA); |==> <NO-OP>
+25:ROR:<=(int,int):<(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1328:suma <= sold |==> suma < sold
+26:ROR:<=(int,int):==(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1328:suma <= sold |==> suma == sold
+27:ROR:<=(int,int):TRUE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1333:suma <= sold |==> true
+28:AOR:+(int,int):%(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1364:sold + DESCOPERIT_PREMIUM |==> sold % DESCOPERIT_PREMIUM
+29:AOR:+(int,int):*(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1364:sold + DESCOPERIT_PREMIUM |==> sold * DESCOPERIT_PREMIUM
+30:AOR:+(int,int):-(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1364:sold + DESCOPERIT_PREMIUM |==> sold - DESCOPERIT_PREMIUM
+31:AOR:+(int,int):/(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1364:sold + DESCOPERIT_PREMIUM |==> sold / DESCOPERIT_PREMIUM
+32:ROR:<=(int,int):<(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1356:suma <= sold + DESCOPERIT_PREMIUM |==> suma < sold + DESCOPERIT_PREMIUM
+33:ROR:<=(int,int):==(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1356:suma <= sold + DESCOPERIT_PREMIUM |==> suma == sold + DESCOPERIT_PREMIUM
+34:ROR:<=(int,int):TRUE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1361:suma <= sold + DESCOPERIT_PREMIUM |==> true
+35:COR:&&(boolean,boolean):==(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1345:premium && suma <= sold + DESCOPERIT_PREMIUM |==> premium == suma <= sold + DESCOPERIT_PREMIUM
+36:COR:&&(boolean,boolean):FALSE(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1353:premium && suma <= sold + DESCOPERIT_PREMIUM |==> false
+37:COR:&&(boolean,boolean):LHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1345:premium && suma <= sold + DESCOPERIT_PREMIUM |==> premium
+38:COR:&&(boolean,boolean):RHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1356:premium && suma <= sold + DESCOPERIT_PREMIUM |==> suma <= sold + DESCOPERIT_PREMIUM
+39:COR:||(boolean,boolean):!=(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1328:suma <= sold || (premium && suma <= sold + DESCOPERIT_PREMIUM) |==> suma <= sold != (premium && suma <= sold + DESCOPERIT_PREMIUM)
+40:COR:||(boolean,boolean):LHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1328:suma <= sold || (premium && suma <= sold + DESCOPERIT_PREMIUM) |==> suma <= sold
+41:COR:||(boolean,boolean):RHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1344:suma <= sold || (premium && suma <= sold + DESCOPERIT_PREMIUM) |==> (premium && suma <= sold + DESCOPERIT_PREMIUM)
+42:COR:||(boolean,boolean):TRUE(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):30:1341:suma <= sold || (premium && suma <= sold + DESCOPERIT_PREMIUM) |==> true
+43:STD:<RETURN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):31:1422:return Rezultat.eroare(Stare.FONDURI_INSUFICIENTE); |==> <NO-OP>
+44:EVR:<IDENTIFIER(int)>:<DEFAULT>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):33:1537:LIMITA_STANDARD |==> 0
+45:COR:<IDENTIFIER(boolean)>:FALSE:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):34:1624:premium |==> false
+46:COR:<IDENTIFIER(boolean)>:TRUE:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):34:1624:premium |==> true
+47:STD:<ASSIGN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):35:1720:limita = LIMITA_PREMIUM; |==> <NO-OP>
+48:AOR:+(int,int):%(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1826:retrasAzi + suma |==> retrasAzi % suma
+49:AOR:+(int,int):*(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1826:retrasAzi + suma |==> retrasAzi * suma
+50:AOR:+(int,int):-(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1826:retrasAzi + suma |==> retrasAzi - suma
+51:AOR:+(int,int):/(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1826:retrasAzi + suma |==> retrasAzi / suma
+52:ROR:>(int,int):!=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1826:retrasAzi + suma > limita |==> retrasAzi + suma != limita
+53:ROR:>(int,int):>=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1826:retrasAzi + suma > limita |==> retrasAzi + suma >= limita
+54:ROR:>(int,int):FALSE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):37:1843:retrasAzi + suma > limita |==> false
+55:STD:<RETURN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):38:1922:return Rezultat.eroare(Stare.LIMITA_DEPASITA); |==> <NO-OP>
+56:EVR:<NEW_ARRAY(int[])>:<DEFAULT>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):40:2041:new int[DENOMINATII.length] |==> null
+57:EVR:<IDENTIFIER(int)>:<DEFAULT>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):41:2131:suma |==> 0
+58:LVR:0:POS:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):42:2224:0 |==> 1
+59:LVR:0:NEG:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):42:2224:0 |==> -1
+60:ROR:<(int,int):!=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2319:i < DENOMINATII.length |==> i != DENOMINATII.length
+61:ROR:<(int,int):<=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2319:i < DENOMINATII.length |==> i <= DENOMINATII.length
+62:ROR:<(int,int):FALSE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2321:i < DENOMINATII.length |==> false
+63:LVR:0:POS:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2352:0 |==> 1
+64:LVR:0:NEG:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2352:0 |==> -1
+65:ROR:>(int,int):!=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2345:rest > 0 |==> rest != 0
+66:ROR:>(int,int):>=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2345:rest > 0 |==> rest >= 0
+67:ROR:>(int,int):FALSE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2350:rest > 0 |==> false
+68:COR:&&(boolean,boolean):==(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2319:i < DENOMINATII.length && rest > 0 |==> i < DENOMINATII.length == rest > 0
+69:COR:&&(boolean,boolean):FALSE(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2342:i < DENOMINATII.length && rest > 0 |==> false
+70:COR:&&(boolean,boolean):LHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2319:i < DENOMINATII.length && rest > 0 |==> i < DENOMINATII.length
+71:COR:&&(boolean,boolean):RHS(boolean,boolean):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):43:2345:i < DENOMINATII.length && rest > 0 |==> rest > 0
+72:AOR:/(int,int):%(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):44:2422:rest / DENOMINATII[i] |==> rest % DENOMINATII[i]
+73:AOR:/(int,int):*(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):44:2422:rest / DENOMINATII[i] |==> rest * DENOMINATII[i]
+74:AOR:/(int,int):+(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):44:2422:rest / DENOMINATII[i] |==> rest + DENOMINATII[i]
+75:AOR:/(int,int):-(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):44:2422:rest / DENOMINATII[i] |==> rest - DENOMINATII[i]
+76:ROR:>(int,int):!=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):45:2514:nr > stoc[i] |==> nr != stoc[i]
+77:ROR:>(int,int):>=(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):45:2514:nr > stoc[i] |==> nr >= stoc[i]
+78:ROR:>(int,int):FALSE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):45:2517:nr > stoc[i] |==> false
+79:STD:<ASSIGN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):46:2611:nr = stoc[i]; |==> <NO-OP>
+80:STD:<ASSIGN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):48:2718:bancnote[i] = nr; |==> <NO-OP>
+81:AOR:*(int,int):%(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2829:nr * DENOMINATII[i] |==> nr % DENOMINATII[i]
+82:AOR:*(int,int):+(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2829:nr * DENOMINATII[i] |==> nr + DENOMINATII[i]
+83:AOR:*(int,int):-(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2829:nr * DENOMINATII[i] |==> nr - DENOMINATII[i]
+84:AOR:*(int,int):/(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2829:nr * DENOMINATII[i] |==> nr / DENOMINATII[i]
+85:AOR:-(int,int):%(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2822:rest - nr * DENOMINATII[i] |==> rest % (nr * DENOMINATII[i])
+86:AOR:-(int,int):*(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2822:rest - nr * DENOMINATII[i] |==> rest * (nr * DENOMINATII[i])
+87:AOR:-(int,int):+(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2822:rest - nr * DENOMINATII[i] |==> rest + nr * DENOMINATII[i]
+88:AOR:-(int,int):/(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2822:rest - nr * DENOMINATII[i] |==> rest / (nr * DENOMINATII[i])
+89:STD:<ASSIGN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):49:2815:rest = rest - nr * DENOMINATII[i]; |==> <NO-OP>
+90:STD:<INC>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):50:2912:i++; |==> <NO-OP>
+91:LVR:0:POS:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):52:3027:0 |==> 1
+92:LVR:0:NEG:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):52:3027:0 |==> -1
+93:ROR:!=(int,int):<(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):52:3019:rest != 0 |==> rest < 0
+94:ROR:!=(int,int):>(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):52:3019:rest != 0 |==> rest > 0
+95:ROR:!=(int,int):TRUE(int,int):ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):52:3024:rest != 0 |==> true
+96:STD:<RETURN>:<NO-OP>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):53:3116:return Rezultat.eroare(Stare.BANCNOTE_INSUFICIENTE); |==> <NO-OP>
+97:EVR:<METHOD_INVOCATION(ro.tss.bancomat.Rezultat)>:<DEFAULT>:ro.tss.bancomat.Bancomat@retrage(int,int,int,boolean,int[]):55:3241:Rezultat.succes(bancnote) |==> null

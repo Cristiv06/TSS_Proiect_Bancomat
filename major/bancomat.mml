@@ -1,0 +1,61 @@
+// Configuratia Major pentru proiect: toti operatorii Major (dupa mml/all.mml din distributie),
+// aplicati doar metodei testate Bancomat.retrage.
+
+target="ro.tss.bancomat.Bancomat@retrage";
+
+list_aor={+,-,*,/,%};
+list_lor={&,|,^};
+list_sor={<<,>>,>>>};
+list_oru={+,-,~};
+
+BIN(+)->list_aor;
+BIN(-)->list_aor;
+BIN(*)->list_aor;
+BIN(/)->list_aor;
+BIN(%)->list_aor;
+
+BIN(>>)->list_sor;
+BIN(<<)->list_sor;
+BIN(>>>)->list_sor;
+
+BIN(&)->list_lor;
+BIN(|)->list_lor;
+BIN(^)->list_lor;
+
+UNR(+)->list_oru;
+UNR(-)->list_oru;
+UNR(~)->list_oru;
+
+// ROR: inlocuirile "suficiente" (Kaminski et al.), ca in all.mml
+BIN(>)->{>=,!=,FALSE};
+BIN(<)->{<=,!=,FALSE};
+BIN(>=)->{>,==,TRUE};
+BIN(<=)->{<,==,TRUE};
+BIN(==)->{<=,>=,FALSE,LHS,RHS};
+BIN(!=)->{<,>,TRUE,LHS,RHS};
+
+// COR
+BIN(&&)->{==,LHS,RHS,FALSE};
+BIN(||)->{!=,LHS,RHS,TRUE};
+
+// STD: tipurile de instructiuni care pot fi sterse
+DEL(CALL);
+DEL(INC);
+DEL(DEC);
+DEL(ASSIGN);
+DEL(CONT);
+DEL(BREAK);
+DEL(RETURN);
+
+LIT(NUMBER);
+LIT(BOOLEAN);
+
+AOR<target>;
+LOR<target>;
+SOR<target>;
+COR<target>;
+ROR<target>;
+LVR<target>;
+ORU<target>;
+STD<target>;
+EVR<target>;

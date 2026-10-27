@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ro.tss</groupId>
+    <artifactId>bancomat</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>TSS - Proiect Bancomat</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Java 11: Major (a doua unealta de mutatie) este un plugin pentru javac 11 -->
+        <maven.compiler.release>11</maven.compiler.release>
+        <junit.version>5.14.4</junit.version>
+        <jacoco.version>0.8.16</jacoco.version>
+        <pitest.version>1.30.1</pitest.version>
+        <!-- suprascrise din linia de comanda pentru a rula PIT pe un singur set de teste -->
+        <pit.reportsDirectory>${project.build.directory}/pit-reports</pit.reportsDirectory>
+        <pit.mutators>DEFAULTS</pit.mutators>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- folosit de analizorul Major (major/MajorAnaliza.java) pentru a rula testele JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.16.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.6.1</version>
+            </plugin>
+
+            <!-- Code coverage: JaCoCo -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <!-- in raport apare doar clasa testata -->
+                            <includes>
+                                <include>ro/tss/bancomat/Bancomat.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Mutation testing: PIT -->
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>${pitest.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>1.2.3</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <targetClasses>
+                        <param>ro.tss.bancomat.Bancomat</param>
+                    </targetClasses>
+                    <!-- testele se aleg din linia de comanda: -DtargetTests=Clasa1,Clasa2 (implicit: toate) -->
+                    <excludedTestClasses>
+                        <param>ro.tss.bancomat.mutanti.*</param>
+                    </excludedTestClasses>
+                    <mutators>
+                        <mutator>${pit.mutators}</mutator>
+                    </mutators>
+                    <reportsDirectory>${pit.reportsDirectory}</reportsDirectory>
+                    <timestampedReports>false</timestampedReports>
+                    <outputFormats>
+                        <param>HTML</param>
+                        <param>XML</param>
+                    </outputFormats>
+                    <exportLineCoverage>true</exportLineCoverage>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
