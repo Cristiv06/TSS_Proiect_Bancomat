@@ -10,7 +10,7 @@ import static ro.tss.bancomat.Date.*;
  * 1b) Analiza valorilor de frontiera (boundary value analysis).
  *
  * <p>Pentru fiecare clasa de echivalenta de la 1a se testeaza valorile de pe frontiera
- * si cele imediat vecine (vezi DOCUMENTATIE.md, sectiunea 1b).
+ * si cele imediat vecine (vezi docs/Documentatie_TSS.pdf, sectiunea 1b).
  */
 @DisplayName("1b - Valori de frontiera")
 class FrontieraTest {

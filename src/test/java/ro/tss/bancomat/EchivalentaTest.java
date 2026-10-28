@@ -9,7 +9,7 @@ import static ro.tss.bancomat.Date.*;
 /**
  * 1a) Partitionare de echivalenta (equivalence partitioning).
  *
- * <p>Clase individuale (vezi DOCUMENTATIE.md, sectiunea 1a):
+ * <p>Clase individuale (vezi docs/Documentatie_TSS.pdf, sectiunea 1a):
  * <ul>
  *   <li>S_1 = {10 &lt;= suma &lt;= 5000, suma % 10 == 0}, S_2 = {suma &lt; 10},
  *       S_3 = {suma &gt; 5000}, S_4 = {10 &lt;= suma &lt;= 5000, suma % 10 != 0}</li>

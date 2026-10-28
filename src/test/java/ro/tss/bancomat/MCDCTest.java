@@ -21,7 +21,7 @@ import static ro.tss.bancomat.Date.*;
  *   <li>[14] D7 = rest != 0</li>
  * </ul>
  * Perechile de teste care arata influenta independenta a fiecarei conditii sunt
- * descrise in DOCUMENTATIE.md, sectiunea 4.
+ * descrise in docs/Documentatie_TSS.pdf, sectiunea 4.
  */
 @DisplayName("4 - MC/DC")
 class MCDCTest {

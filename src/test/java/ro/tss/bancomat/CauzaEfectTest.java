@@ -19,7 +19,7 @@ import static ro.tss.bancomat.Date.*;
  * E4 = BANCNOTE_INSUFICIENTE, E5 = SUCCES.
  *
  * <p>Fiecare test corespunde unei coloane T1..T11 din tabelul de decizie
- * (DOCUMENTATIE.md, sectiunea 1c).
+ * (docs/Documentatie_TSS.pdf, sectiunea 1c).
  */
 @DisplayName("1c - Graf cauza-efect")
 class CauzaEfectTest {
